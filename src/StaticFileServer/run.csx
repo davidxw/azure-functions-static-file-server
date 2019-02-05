@@ -34,9 +34,10 @@ private static string GetEnvironmentVariable(string name)
 
 private static string GetFilePath(HttpRequestMessage req, TraceWriter log)
 {
-    var pathValue = req.GetQueryNameValuePairs()
-        .FirstOrDefault(q => string.Compare(q.Key, "file", true) == 0)
-        .Value;
+    //var pathValue = req.GetQueryNameValuePairs()
+    //    .FirstOrDefault(q => string.Compare(q.Key, "file", true) == 0)
+    //    .Value;
+    var pathValue = req.Query["file"];
 
     var path = pathValue ?? "";
     
